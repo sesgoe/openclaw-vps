@@ -1,0 +1,9 @@
+# Copy this file to terraform.tfvars only for non-secret overrides.
+# Never put DIGITALOCEAN_TOKEN or tailscale_auth_key in this file.
+
+name   = "openclaw-gateway"
+region = "nyc3"
+size   = "s-2vcpu-4gb"
+
+enable_backups = true
+timezone       = "America/New_York"

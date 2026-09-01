@@ -1,0 +1,19 @@
+# Terraform working data and local state can contain bootstrap secrets.
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Local variable files and environment files may contain credentials.
+*.tfvars
+*.tfvars.json
+!.tfvars.example
+.env
+.env.*
+!.env.example
+
+# Local keys and operator-only scratch data.
+.secrets/
+

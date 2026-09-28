@@ -141,6 +141,10 @@ Then open `http://127.0.0.1:18789/` locally. Tailscale Serve can be added later,
 
 After onboarding, run `openclaw security audit`. Before treating the Gateway as durable, also test restoring its state from a backup.
 
+## HEY access for the agent
+
+`hey-cli-ssh/` provisions a second, disposable Droplet that holds the HEY credentials and gives the agent a restricted `hey` command over SSH: it reads and organizes mail and writes drafts, but cannot send. See `hey-cli-ssh/README.md`.
+
 ## Recovery and lifecycle notes
 
 - The Droplet is stateful. Terraform can recreate infrastructure, but only tested backups can restore gateway state and workspaces.

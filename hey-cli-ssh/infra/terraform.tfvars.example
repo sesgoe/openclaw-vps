@@ -1,0 +1,7 @@
+# Copy this file to terraform.tfvars only for non-secret overrides.
+# Never put DIGITALOCEAN_TOKEN or tailscale_auth_key in this file.
+
+name     = "hey-gateway"
+region   = "nyc3"
+size     = "s-1vcpu-512mb-10gb"
+timezone = "America/New_York"

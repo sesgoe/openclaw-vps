@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# hey — the HEY CLI, run on the HEY gateway over SSH.
+#
+# Install on the OpenClaw gateway somewhere on the agent's PATH (e.g. ~/.local/bin/hey).
+# Arguments are single-quoted for the remote side, which splits them without a shell,
+# so anything — quotes, newlines, `;` — reaches the CLI as the same argument. Message
+# bodies can also be piped on stdin: `printf '%s' "$body" | hey compose --subject ...`.
+set -euo pipefail
+
+host="${HEY_GATEWAY_HOST:-hey-gateway}"
+
+quoted=()
+for arg in "$@"; do
+  quoted+=("'${arg//"'"/"'\\''"}'")
+done
+
+exec ssh -T -o BatchMode=yes "$host" -- "hey ${quoted[*]}"

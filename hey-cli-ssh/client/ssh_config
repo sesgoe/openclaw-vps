@@ -1,0 +1,21 @@
+# Append to ~/.ssh/config for the account OpenClaw runs as on the OpenClaw gateway.
+#
+# Host keys are not pinned: the connection runs over Tailscale, whose WireGuard keys
+# already authenticate the machine answering to this MagicDNS name, and pinning would
+# break on every rebuild of the gateway. Nothing else ever uses this host entry.
+Host hey-gateway
+  HostName hey-gateway
+  User gordy
+  IdentityFile ~/.ssh/hey_gateway_gordy
+  IdentitiesOnly yes
+  BatchMode yes
+  RequestTTY no
+  ForwardAgent no
+  ForwardX11 no
+  ClearAllForwardings yes
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel ERROR
+  ControlMaster auto
+  ControlPath ~/.ssh/cm-%C
+  ControlPersist 60s

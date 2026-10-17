@@ -47,8 +47,8 @@ command -v apt-get >/dev/null 2>&1 || die "apt-get is required"
 
 # shellcheck source=/dev/null
 source /etc/os-release
-[[ "${ID:-}" == "ubuntu" && "${VERSION_ID:-}" == "24.04" ]] || \
-  die "this script supports Ubuntu 24.04; found ${PRETTY_NAME:-unknown OS}"
+[[ "${ID:-}" == "ubuntu" && "${VERSION_ID:-}" =~ ^(24.04|26.04)$ ]] || \
+  die "this script supports Ubuntu 24.04 and 26.04; found ${PRETTY_NAME:-unknown OS}"
 
 readonly DEB_ARCH="$(dpkg --print-architecture)"
 [[ "${DEB_ARCH}" == "amd64" ]] || \

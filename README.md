@@ -1,5 +1,8 @@
 # OpenClaw gateway infrastructure
 
+**The gateway no longer runs on the Droplet below.** `infra/` is kept for reference and as a rollback; `hey-cli-ssh/`
+is unchanged and still in use. `scripts/install-openclaw.sh` also supports Ubuntu 26.04.
+
 This repository provisions a hardened Ubuntu 24.04 DigitalOcean Droplet, enrolls it in Tailscale during first boot, and leaves OpenClaw itself for a separate, interactive setup step. There is no temporary public SSH phase.
 
 ## Architecture
